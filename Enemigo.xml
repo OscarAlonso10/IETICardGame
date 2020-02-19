@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PlayerConfig [
+<!ELEMENT PlayerConfig (playerLife, summonPointsPlayer, deck) >
+<!ELEMENT summonPointsPlayer (#PCDATA)>
+<!ELEMENT playerLife (#PCDATA)>
+<!ELEMENT deck (card)+>
+<!ELEMENT card (name, description, attack, defense)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT attack (#PCDATA)>
+<!ELEMENT defense (#PCDATA)>
+<!ATTLIST card summonPoints (0 | 1 | 2 | 3 | 4 | 5) #REQUIRED>
+<!ATTLIST card type (infantry | chivalry | lancer ) #REQUIRED>
+]>
+
+<PlayerConfig>
+  <playerLife>10</playerLife>
+  <summonPointsPlayer>5</summonPointsPlayer>
+
+  <deck>
+
+    <!-- INFANTERÍA - INFANTRY -->
+    <!-- Carta 1 -->
+    <card summonPoints="2" type="infantry">
+      <name>Feltzer</name>
+      <description>Paladín fuertemente equipado con una gran y afilada espada.</description>
+      <attack>2</attack>
+      <defense>0</defense>
+    </card>
+
+    <!-- Carta 2 -->
+    <card summonPoints="1" type="infantry">
+      <name>Fugitive</name>
+      <description>Ex-convicto de alcatraz que aún lleva las esposas rotas.</description>
+      <attack>1</attack>
+      <defense>0</defense>
+    </card>
+
+    <!-- Carta 3 -->
+    <card summonPoints="2" type="infantry">
+      <name>Rebla</name>
+      <description>Robusto orco que puede saltar hasta 20 metros de alto.</description>
+      <attack>1</attack>
+      <defense>1</defense>
+    </card>
+
+    <!-- Carta 4 -->
+    <card summonPoints="1" type="infantry">
+      <name>Squalo</name>
+      <description>Delfín equipado con una torreta de alto calibre en su aleta.</description>
+      <attack>1</attack>
+      <defense>0</defense>
+    </card>
+
+    <!-- Carta 5 -->
+    <card summonPoints="2" type="infantry">
+      <name>Technical</name>
+      <description>Dromedario africano armado hasta los dientes.</description>
+      <attack>1</attack>
+      <defense>1</defense>
+    </card>
+
+    <!-- Carta 6 -->
+    <card summonPoints="3" type="infantry">
+      <name>Tug</name>
+      <description>Cachalote gigante con capacidad para elvarse unos 30 metros.</description>
+      <attack>1</attack>
+      <defense>2</defense>
+    </card>
+
+    <!-- Carta 7 -->
+    <card summonPoints="4" type="infantry">
+      <name>Zhaba</name>
+      <description>Titán defensor cubierto con gruesas planchas de acero.</description>
+      <attack>0</attack>
+      <defense>4</defense>
+    </card>
+
+
+
+    <!-- CABALLERÍA - CHIVALRY -->
+    <!-- Carta 8 -->
+    <card summonPoints="2" type="chivalry">
+      <name>Buffalo</name>
+      <description>Gran y fuerte búfalo montado por un pequeño elfo estratega.</description>
+      <attack>1</attack>
+      <defense>1</defense>
+    </card>
+
+    <!-- Carta 9 -->
+    <card summonPoints="3" type="chivalry">
+      <name>Imorgon</name>
+      <description>Ágil velociraptor que no verás venir y solo sentirás dolor.</description>
+      <attack>3</attack>
+      <defense>0</defense>
+    </card>
+
+    <!-- Carta 10 -->
+    <card summonPoints="2" type="chivalry">
+      <name>Nemesis</name>
+      <description>Caballero de la noche que posee un robusto mazo con pinchos.</description>
+      <attack>1</attack>
+      <defense>1</defense>
+    </card>
+
+    <!-- Carta 11 -->
+    <card summonPoints="5" type="chivalry">
+      <name>Sasquatch</name>
+      <description>Gigante que solo mira hacia delante y nada lo parará.</description>
+      <attack>5</attack>
+      <defense>0</defense>
+    </card>
+
+    <!-- Carta 12 -->
+    <card summonPoints="3" type="chivalry">
+      <name>Shotaro</name>
+      <description>Avanzado robot-guepardo con una increíble Int. Artificial.</description>
+      <attack>2</attack>
+      <defense>1</defense>
+    </card>
+
+    <!-- Carta 13 -->
+    <card summonPoints="5" type="chivalry">
+      <name>Phantom</name>
+      <description>Un gnomo a los mandos de un robot gigantesco y resistente.</description>
+      <attack>2</attack>
+      <defense>3</defense>
+    </card>
+
+    <!-- Carta 14 -->
+    <card summonPoints="3" type="chivalry">
+      <name>Thrax</name>
+      <description>Pantera infernal más rápida que la luz que te irá al cuello.</description>
+      <attack>2</attack>
+      <defense>1</defense>
+    </card>
+
+
+
+    <!-- LANCEROS - LANCER -->
+    <!-- Carta 15 -->
+    <card summonPoints="3" type="lancer">
+      <name>Blade</name>
+      <description>Viejo y oxidado cañón que aún cuenta con alta precisión.</description>
+      <attack>3</attack>
+      <defense>0</defense>
+    </card>
+
+    <!-- Carta 16 -->
+    <card summonPoints="1" type="lancer">
+      <name>Bodhi</name>
+      <description>Osito de peluche que dispara un líquido blanco por sus ojos.</description>
+      <attack>1</attack>
+      <defense>0</defense>
+    </card>
+
+    <!-- Carta 17 -->
+    <card summonPoints="4" type="lancer">
+      <name>Phoenix</name>
+      <description>Fénix ancestral escupe-fuego desde las alturas.</description>
+      <attack>3</attack>
+      <defense>1</defense>
+    </card>
+
+    <!-- Carta 18 -->
+    <card summonPoints="3" type="lancer">
+      <name>Revolter</name>
+      <description>Usa su arco desde la distancia. No quiere despeinar su pelo.</description>
+      <attack>3</attack>
+      <defense>0</defense>
+    </card>
+
+    <!-- Carta 19 -->
+    <card summonPoints="3" type="lancer">
+      <name>Tulip</name>
+      <description>Veterano francotirador que usa el rifle como bastón.</description>
+      <attack>2</attack>
+      <defense>1</defense>
+    </card>
+
+    <!-- Carta 20 -->
+    <card summonPoints="4" type="lancer">
+      <name>Valkyrie</name>
+      <description>Ángel volador y protector que puedes confundir con cupido.</description>
+      <attack>2</attack>
+      <defense>2</defense>
+    </card>
+  </deck>
+</PlayerConfig>
