@@ -4,6 +4,7 @@ parser = ETree.XMLParser(encoding="utf-8")
 barajaEnemigo = None
 MyBaraja = None
 
+
 #Creación menu
 showMenu = '''
 ====================================
@@ -52,6 +53,153 @@ subMenuBarajaEnemigoCargada='''
 ====================================
 '''
 #Cargar xml
+def barajaAleatoria():
+    print("hola")
+def barajaOfensivaEnemigo():
+    tree = ETree.parse("Enemigo.xml")
+    root = tree.getroot()
+
+    baraja = []
+    barajaAtaque = []
+
+
+    # Creamos un for de manera que debemos de encontrar mediante el metodo findall los tags dentro de deck/card
+    for card in root.findall('deck/card'):
+        carta = []
+        summonPoints = int(card.attrib['summonPoints'])
+        tipo = str(card.attrib['type'])
+        nombre = str(card.find('name').text)
+        descripcion = str(card.find('description').text)
+        ataque = int(card.find('attack').text)
+        defensa = int(card.find('defense').text)
+
+        carta.append(summonPoints)
+        carta.append(tipo)
+        carta.append(nombre)
+        carta.append(descripcion)
+        carta.append(ataque)
+        carta.append(defensa)
+        baraja.append(carta)
+    baraja.sort(reverse=True)
+
+    # Ordenamos la variable barajaordatt y le decimos que comienze desde la posición de la lista 4
+    # En este caso será la puntuación más alta de ataque que será la primera del mazo en generar
+    barajaordatt = sorted(baraja, key=lambda h: h[4])
+    barajaordatt.reverse()
+
+
+    # Creamos un for de manera que añadimos a la lista barajaAtaque la variable que guardará la otra lista barajaordatt
+    for i in range(0, 10):
+        barajaAtaque.append(barajaordatt[i])
+    print(barajaAtaque)
+
+def barajaOfensiva():
+    tree = ETree.parse("myBaraja.xml")
+    root = tree.getroot()
+
+    baraja = []
+    barajaAtaque = []
+
+    # Creamos un for de manera que debemos de encontrar mediante el metodo findall los tags dentro de deck/card
+    for card in root.findall('deck/card'):
+        carta = []
+        summonPoints = int(card.attrib['summonPoints'])
+        tipo = str(card.attrib['type'])
+        nombre = str(card.find('name').text)
+        descripcion = str(card.find('description').text)
+        ataque = int(card.find('attack').text)
+        defensa = int(card.find('defense').text)
+
+        carta.append(summonPoints)
+        carta.append(tipo)
+        carta.append(nombre)
+        carta.append(descripcion)
+        carta.append(ataque)
+        carta.append(defensa)
+        baraja.append(carta)
+    baraja.sort(reverse=True)
+
+    # Ordenamos la variable barajaordatt y le decimos que comienze desde la posición de la lista 4
+    # En este caso será la puntuación más alta de ataque que será la primera del mazo en generar
+    barajaordatt = sorted(baraja, key=lambda h: h[4])
+    barajaordatt.reverse()
+
+
+    # Creamos un for de manera que añadimos a la lista barajaAtaque la variable que guardará la otra lista barajaordatt
+    for i in range(0, 10):
+        barajaAtaque.append(barajaordatt[i])
+    print(barajaAtaque)
+
+def barajaDefensiva():
+    tree = ETree.parse("myBaraja.xml")
+    root = tree.getroot()
+    baraja = []
+    barajaDefensa = []
+
+    # Creamos un for de manera que debemos de encontrar mediante el metodo findall los tags dentro de deck/card
+    for card in root.findall('deck/card'):
+        carta = []
+        summonPoints = int(card.attrib['summonPoints'])
+        tipo = str(card.attrib['type'])
+        nombre = str(card.find('name').text)
+        descripcion = str(card.find('description').text)
+        ataque = int(card.find('attack').text)
+        defensa = int(card.find('defense').text)
+        carta.append(summonPoints)
+        carta.append(tipo)
+        carta.append(nombre)
+        carta.append(descripcion)
+        carta.append(ataque)
+        carta.append(defensa)
+        baraja.append(carta)
+    baraja.sort(reverse=True)
+
+    # Ordenamos la variable barajaordedef y le decimos que comienze desde la posición de la lista 5
+    # En este caso será la puntuación más alta de defensa la primera del mazo en generar
+    barajaorddef = sorted(baraja, key=lambda h: h[5])
+    barajaorddef.reverse()
+
+    # Creamos un for de manera que añadimos a la lista barajaDefensa la variable que guardará la otra lista barajaordedef
+    for i in range(0, 10):
+        barajaDefensa.append(barajaorddef[i])
+    print(barajaDefensa)
+
+def barajaDefensivaEnemigo():
+    tree = ETree.parse("Enemigo.xml")
+    root = tree.getroot()
+
+    baraja = []
+
+    barajaDefensa = []
+
+    # Creamos un for de manera que debemos de encontrar mediante el metodo findall los tags dentro de deck/card
+    for card in root.findall('deck/card'):
+        carta = []
+        summonPoints = int(card.attrib['summonPoints'])
+        tipo = str(card.attrib['type'])
+        nombre = str(card.find('name').text)
+        descripcion = str(card.find('description').text)
+        ataque = int(card.find('attack').text)
+        defensa = int(card.find('defense').text)
+        minaAtaque = 0
+        carta.append(summonPoints)
+        carta.append(tipo)
+        carta.append(nombre)
+        carta.append(descripcion)
+        carta.append(ataque)
+        carta.append(defensa)
+        baraja.append(carta)
+    baraja.sort(reverse=True)
+
+    # Ordenamos la variable barajaordedef y le decimos que comienze desde la posición de la lista 5
+    # En este caso será la puntuación más alta de defensa la primera del mazo en generar
+    barajaorddef = sorted(baraja, key=lambda h: h[5])
+    barajaorddef.reverse()
+
+    # Creamos un for de manera que añadimos a la lista barajaDefensa la variable que guardará la otra lista barajaordedef
+    for i in range(0, 10):
+        barajaDefensa.append(barajaorddef[i])
+    print(barajaDefensa)
 
 status = True
 while status:
@@ -71,13 +219,16 @@ while status:
                 option = int(input("Selecciona una opcion: "))
             if  option == 1:
                 print("Creando mazo aleatorio...")
+                barajaAleatoria()
                 status = False
             elif option == 2:
                 print("Creando mazo ofensivo...")
                 status= False
+                barajaOfensiva()
             elif option == 3:
                 print("Creando mazo defensivo...")
                 status = False
+                barajaDefensiva()
             elif option ==4:
                 print("Creando mazo equilibrado")
                 status = False
@@ -93,13 +244,16 @@ while status:
                 option = int(input("Selecciona una opcion: "))
             if option == 1:
                 print("Creando mazo aleatorio...")
+                barajaAleatoria()
                 status = False
             elif option == 2:
                 print("Creando mazo ofensivo...")
                 status = False
+                barajaOfensiva()
             elif option == 3:
                 print("Creando mazo defensivo...")
                 status = False
+                barajaDefensiva()
             elif option == 4:
                 print("Creando mazo equilibrado")
                 status = False
@@ -144,9 +298,11 @@ while status:
             elif option == 2:
                 print("Creando mazo del enemigo ofensivo...")
                 status= False
+                barajaOfensivaEnemigo()
             elif option == 3:
                 print("Creando mazo del enemigo defensivo...")
                 status = False
+                barajaDefensivaEnemigo()
             elif option ==4:
                 print("Creando mazo del enemigo equilibrado")
                 status = False
@@ -166,9 +322,11 @@ while status:
             elif option == 2:
                 print("Creando mazo ofensivo...")
                 status = False
+                barajaOfensivaEnemigo()
             elif option == 3:
                 print("Creando mazo defensivo...")
                 status = False
+                barajaDefensivaEnemigo()
             elif option == 4:
                 print("Creando mazo equilibrado")
                 status = False
