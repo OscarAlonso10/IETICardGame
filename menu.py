@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ETree
 parser = ETree.XMLParser(encoding="utf-8")
 barajaEnemigo = None
 MyBaraja = None
-
+baraja = []
 
 #Creación menu
 showMenu = '''
@@ -55,13 +55,13 @@ subMenuBarajaEnemigoCargada='''
 #Cargar xml
 def barajaAleatoria():
     print("hola")
+
 def barajaOfensivaEnemigo():
     tree = ETree.parse("Enemigo.xml")
     root = tree.getroot()
 
     baraja = []
     barajaAtaque = []
-
 
     # Creamos un for de manera que debemos de encontrar mediante el metodo findall los tags dentro de deck/card
     for card in root.findall('deck/card'):
@@ -72,7 +72,6 @@ def barajaOfensivaEnemigo():
         descripcion = str(card.find('description').text)
         ataque = int(card.find('attack').text)
         defensa = int(card.find('defense').text)
-
         carta.append(summonPoints)
         carta.append(tipo)
         carta.append(nombre)
