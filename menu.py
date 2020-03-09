@@ -2,10 +2,13 @@
 import xml.etree.ElementTree as ETree
 import random
 
+
 parser = ETree.XMLParser(encoding="utf-8")
 enemyTree = None
 tree = None
+
 baraja = []
+barajaEnemiga =[]
 
 # Creación menu
 showMenu = '''
@@ -96,7 +99,6 @@ def generarCartaAliada(randomPos):
 def mostrarCartasAliadas(cards):
     for i in range(len(cards)):
         print(cards[i])
-
 
 "<=====================================================   END Cartas Aliada Aleatorio FUNCTION    ======================================>"
 "<=====================================================   START Cartas Enemigo Aleatorio FUNCTION    ======================================>"
@@ -346,7 +348,7 @@ def barajaDefensivaEnemigo():
         descripcion = str(card.find('description').text)
         ataque = int(card.find('attack').text)
         defensa = int(card.find('defense').text)
-        minaAtaque = 0
+
         carta.append(summonPoints)
         carta.append(tipo)
         carta.append(nombre)
@@ -365,6 +367,25 @@ def barajaDefensivaEnemigo():
     for i in range(0, 10):
         barajaDefensa.append(barajaorddef[i])
     print(barajaDefensa)
+
+
+def DecidirInicio():
+    inicio = random.randrange(1, 3)
+    return inicio
+
+def FaseDeInvocacionAliada():
+    print('')
+
+def FaseDeInvocacionEnemiga():
+    print('')
+
+def JugadorVsJugador():
+    FaseDeInvocacionAliada()
+    FaseDeInvocacionEnemiga()
+    if DecidirInicio() ==1:
+        print('empieza el jugador 1')
+    else:
+        print('empieza el jugador 2')
 
 
 status = True
@@ -443,7 +464,12 @@ while status:
                 status = False
             elif option == 9:
                 print("Preparando lucha Jugador vs Jugador...")
+                if():
+                    JugadorVsJugador()
+                else:
+                    print('Aun no teneis una baraja cargada')
                 status = False
+
             elif option == 10:
                 print("Preparando lucha Jugador vs Bot...")
                 status = False
@@ -525,6 +551,10 @@ while status:
                 status = False
             elif option == 9:
                 print("Preparando lucha Jugador vs Jugador...")
+                if ():
+                    JugadorVsJugador()
+                else:
+                    print('Aun no teneis una baraja cargada')
                 status = False
             elif option == 10:
                 print("Preparando lucha Jugador vs Bot...")
